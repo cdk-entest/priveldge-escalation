@@ -1,7 +1,24 @@
+---
+title: Kendra Search
+description: build a search with amplify rest api and kendra search
+author: haimtran
+publishedDate: 13/09/2022
+date: 2022-09-13
+---
+
 ## Introduction
 
-- aws iam privilege escaltion
+bad users create permission more than granted by exploiting IAM such as the create-policy-version and set-as-default.
+
+- aws iam priveledge escaltion
 - expoliting create-policy-version [HERE](https://bishopfox.com/blog/privilege-escalation-in-aws)
+
+<LinkedImage
+  href="https://youtu.be/K84hInX226Q"
+  height={400}
+  alt="Priveledge Escalation"
+  src="/thumbnail/priveldge-escalation.png"
+/>
 
 ## Create an Iam User
 
@@ -72,6 +89,22 @@ aws iam attach-user-policy \
 ```
 
 ## Priveldge Escalation
+
+admin policy bad user ident
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowEverything",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 now the user upgrate their permission to admin
 
